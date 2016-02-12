@@ -171,11 +171,11 @@ function custom_cmd_error_catch {
         
         
     if [ $RESULT -eq 0 ]; then
-        debugme echo "DRA is present and an error was found in user's script";
-        debugme echo "   Ignore.";
+        debugme echo \"DRA is present and an error was found in user's script\";
+        debugme echo \"   Ignore.\";
     else
-        debugme echo "DRA is NOT present and an error was found in user's script";
-        debugme echo "   EXIT.";
+        debugme echo \"DRA is NOT present and an error was found in user's script\";
+        debugme echo \"   EXIT.\";
         exit 1
     fi
 }
