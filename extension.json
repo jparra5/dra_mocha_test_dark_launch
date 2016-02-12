@@ -165,11 +165,19 @@ export DRA_COVERAGE_REGRESSION_THRESHOLD=#COVERAGE_REGRESSION_THRESHOLD#
         
         
 function custom_cmd_error_catch {
-    echo \"*************************\"
-    echo \"** trap worked!\"
-    echo \"*************************\"
+    debugme echo \"*************************\"
+    debugme echo \"** trap worked!\"
+    debugme echo \"*************************\"
         
-    exit 1
+        
+    if [ $RESULT -eq 0 ]; then
+        debugme echo "DRA is present and an error was found in user's script";
+        debugme echo "   Ignore.";
+    else
+        debugme echo "DRA is NOT present and an error was found in user's script";
+        debugme echo "   EXIT.";
+        exit 1
+    fi
 }
         
 function custom_cmd {
