@@ -164,8 +164,14 @@ export DRA_COVERAGE_REGRESSION_THRESHOLD=#COVERAGE_REGRESSION_THRESHOLD#
 
         
         
+function custom_cmd_error_catch {
+    echo \"*************************\"
+    echo \"** trap worked!\"
+    echo \"*************************\"
+}
+        
 function custom_cmd {
-    trap `echo \"trap worked!\" ; exit 1` ERR
+    trap custom_cmd_error_catch ERR
     eval #COMMAND#
     CMDRESULT=$?
 
